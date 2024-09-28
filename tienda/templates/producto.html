@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="col-lg-9">
+    <div class="card mt-4">
+        <div class="d-flex justify-content-center">
+            <img class="card-img-top img-fluid w-50" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">{{ producto.nombre }}</h3>
+            <h4>S/{{ producto.precio }}</h4>
+            <p class="card-text">{{ producto.descripcion|default:"No hay descripción disponible para este producto." }}</p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

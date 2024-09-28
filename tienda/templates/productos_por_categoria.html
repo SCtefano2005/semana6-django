@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Productos en la categoría: {{ categoria.nombre }}</h2>
+        <div class="row">
+            {% for producto in productos %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'tienda:producto' producto.id %}">  <!-- Enlace al detalle del producto -->
+                            <img class="card-img-top" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" onerror="this.onerror=null; this.src='http://placehold.it/700x400';">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ producto.nombre }}</h4>
+                            <h5>S/ {{ producto.precio }}</h5>
+                            <p class="card-text">Stock: {{ producto.stock }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No hay productos disponibles en esta categoría.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
